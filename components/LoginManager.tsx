@@ -1,15 +1,6 @@
 import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
-import {
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import {
   Colors,
@@ -18,25 +9,19 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Homepage from './components/Homepage';
-import LoginPage from './components/LoginPage';
-import LoginManager from './components/LoginManager';
+import Homepage from './Homepage';
+import LoginPage from './LoginPage';
 
-function App(): React.JSX.Element {
-  return (
-    <View style={styles.body}>
-      <LoginManager></LoginManager>
-    </View>
-  );
+function LoginManager(): React.JSX.Element {
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
+  return isLoggedIn ? <Homepage></Homepage> : <LoginPage></LoginPage>;
 }
 
 const styles = StyleSheet.create({
   body: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#ffffff',
-    borderBlockColor: 'blue',
-    borderBottomWidth: 15,
+    backgroundColor: '#00ffff',
   },
   item: {
     margin: 10,
@@ -52,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default LoginManager;
